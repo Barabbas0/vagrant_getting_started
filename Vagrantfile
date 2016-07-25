@@ -66,6 +66,7 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "apache"
+    chef.add_recipe "apache2"
+	chef.json = { :apache => { :default_site_enabled => true } }
   end
 end
